@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <h2>All the fruits</h2>
-    <a href="/movies/new">Create a New Fruit</a>
+    <h2>Your Queue</h2>
+    <a href="/movies/new">Add a new Movie</a>
     <ul>
         <% for(let i=0; i < movies.length; i++){ %>
             <li>
@@ -19,9 +19,9 @@
                     <%=movies[i].name; %>
                 </a> is <%=movies[i].genre; %>.
                     <% if(movies[i].hasSeen===true){ %>
-                        It is ready to eat
+                        Has been seen.
                         <% } else { %>
-                            It is not ready to eat
+                            Needs to be watched.
                             <% } %>
                                 <!--Update Form-->
                                 <a href="/movies/<%=movies[i].id; %>/edit">Edit</a>

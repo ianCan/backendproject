@@ -67,7 +67,7 @@ APP.get('/retrieve-session', (req, res) => {
 
 APP.get('/update-session', (req, res) => {
     console.log(req.session);
-    req.session.anyProperty = 'potato';
+    req.session.anyProperty = 'Gone With the Wind';
     console.log(req.session);
     res.redirect('/movies')
 });
