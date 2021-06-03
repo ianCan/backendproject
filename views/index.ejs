@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Queue</title>
+</head>
+
+<body>
+    <h2>All the fruits</h2>
+    <a href="/movies/new">Create a New Fruit</a>
+    <ul>
+        <% for(let i=0; i < movies.length; i++){ %>
+            <li>
+                The
+                <a href="/movies/<%=movies[i].id; %>">
+                    <%=movies[i].name; %>
+                </a> is <%=movies[i].color; %>.
+                    <% if(movies[i].readyToEat===true){ %>
+                        It is ready to eat
+                        <% } else { %>
+                            It is not ready to eat
+                            <% } %>
+                                <!--Update Form-->
+                                <a href="/movies/<%=movies[i].id; %>/edit">Edit</a>
+                                <!--Delete Form-->
+                                <form action="/movies/<%=movies[i].id; %>?_method=DELETE" method="POST">
+                                    <input type="submit" value="DELETE">
+                                </form>
+            </li>
+            <% } %>
+    </ul>
+</body>
+
+</html>

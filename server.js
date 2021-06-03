@@ -4,7 +4,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
-const app = express();
+const APP = express();
 const db = mongoose.connection;
 //___________________
 //Port
@@ -34,25 +34,66 @@ db.on('open', () => { });
 //___________________
 
 //use public folder for static assets
-app.use(express.static('public'));
+APP.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
+APP.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
+APP.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 //use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
+APP.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
+mongoose.connection.once('open', () => {
+    console.log('connected to mongo');
+});
+
+const moviesController = require('./controllers/movies.js');
+APP.use(moviesController)
+
+APP.get('/create-session', (req, res) => {
+    console.log(req.session);
+    req.session.anyProperty = 'Gone With the Wind';
+    res.redirect('/movies')
+});
+
+APP.get('/retrieve-session', (req, res) => {
+    if (req.session.anyProperty === 'Gone With the Wind') {
+        console.log('tis a tomato')
+    } else {
+        console.log('tis is NOT a tomato')
+    }
+    res.redirect('/movies')
+});
+
+APP.get('/update-session', (req, res) => {
+    console.log(req.session);
+    req.session.anyProperty = 'potato';
+    console.log(req.session);
+    res.redirect('/movies')
+});
+
+APP.get('/delete-session', (req, res) => {
+    req.session.destroy((error) => {
+        if (error) {
+            console.log('something is wrong')
+        } else {
+            console.log('all is well')
+        };
+    });
+    res.redirect('/movies')
+});
 
 //___________________
 // Routes
 //___________________
 //localhost:3000
-app.get('/', (req, res) => {
+APP.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
 //___________________
 //Listener
 //___________________
-app.listen(PORT, () => console.log('Listening on port:', PORT));
+APP.listen(PORT, () => {
+    console.log('Right by your side till ' + PORT + ' + 5')
+});

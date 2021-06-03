@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Here are the fruit</title>
+</head>
+
+<body>
+    <h2>
+        <%=movie.name; %>
+    </h2>
+    The <%=movie.name; %> is <%=movie.color; %>.
+            <% if(movie.readyToEat===true){ %>
+                It is ready to eat
+                <% } else { %>
+                    It is not ready to eat
+                    <% } %>
+                        <nav>
+                            <a href="/movies">Back to your queue</a>
+                        </nav>
+</body>
+
+</html>
