@@ -13,9 +13,17 @@
     <form action="/movies" method="POST">
         Name: <input type="text" name="name" />
         <br>
-        Genre: <input type="text" name="genre" />
+        Genre: <select name="genre" id="genre-select">
+            <option value="">--Please choose an option--</option>
+            <option value="action">Action</option>
+        </select>
         <br>
-        Streaming: <input type="text" name="genre" />
+        Streaming Service: <select type="text" name="streaming" id="stream-select">
+            <option value="">--Please choose an option--</option>
+            <option value="netflix">Netflix</option>
+        </select>
+        <br>
+        Personal Score: <input type="range" id="score" name="score" min="0" max="10">
         <br>
         Watched: <input type="checkbox" name="hasSeen" />
         <br>
