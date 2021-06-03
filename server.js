@@ -88,7 +88,7 @@ APP.get('/delete-session', (req, res) => {
 //___________________
 //localhost:3000
 APP.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.redirect('/movies');
 });
 
 //___________________
