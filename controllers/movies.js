@@ -24,10 +24,10 @@ router.get('/movies/new', (req, res) => {
 
 //Show
 router.post('/movies/', (req, res) => {
-    if (req.body.readyToEat === 'on') {
-        req.body.readyToEat = true;
+    if (req.body.hasSeen === 'on') {
+        req.body.hasSeen = true;
     } else {
-        req.body.readyToEat = false;
+        req.body.hasSeen = false;
     }
     Movie.create(req.body, (error, createdMovie) => {
         res.send(createdMovie);
@@ -63,10 +63,10 @@ router.get('/movies/:id/edit', (req, res) => {
 
 //Edit
 router.put('/movies/:id', (req, res) => {
-    if (req.body.readyToEat === 'on') {
-        req.body.readyToEat = true;
+    if (req.body.hasSeen === 'on') {
+        req.body.hasSeen = true;
     } else {
-        req.body.readyToEat = false;
+        req.body.hasSeen = false;
     }
     console.log(req.body)
     Movie.findByIdAndUpdate(req.params.id, req.body, { new: true }, (error, updatedModel) => {

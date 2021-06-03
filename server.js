@@ -58,9 +58,9 @@ APP.get('/create-session', (req, res) => {
 
 APP.get('/retrieve-session', (req, res) => {
     if (req.session.anyProperty === 'Gone With the Wind') {
-        console.log('tis a tomato')
+        console.log('tis a Gone With the Wind')
     } else {
-        console.log('tis is NOT a tomato')
+        console.log('tis is NOT a Gone With the Wind')
     }
     res.redirect('/movies')
 });
