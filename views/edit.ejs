@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/test.css">
     <title>Movie edit page</title>
 </head>
 
@@ -18,12 +18,12 @@
         <br>
         Genre: <select name="genre" value="<%= movie.genre%>" id="genre-select">
             <option value="">--Please choose an option--</option>
-            <option value="action">Action</option>
+            <option value="Action">Action</option>
         </select>
         <br>
         Streaming Service: <select type="text" name="streaming" value="<%= movie.streaming%>" id="stream-select">
             <option value="">--Please choose an option--</option>
-            <option value="netflix">Netflix</option>
+            <option value="Netflix">Netflix</option>
         </select>
         <br>
         Score: <input type="range" id="score" value="<%= movie.score%>" name="score" min="0" max="10">

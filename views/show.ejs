@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/test.css">
     <title>Movies</title>
 </head>
 
@@ -17,9 +17,9 @@
     </h2>
     The <%=movie.name; %> is <%=movie.genre; %>.
             <% if(movie.hasSeen===true){ %>
-                It is ready to eat
+                You have seen this movie.
                 <% } else { %>
-                    It is not ready to eat
+                    Needs to be watched.
                     <% } %>
                         <nav>
                             <a href="/movies">Back to your queue</a>

@@ -30,7 +30,7 @@ router.post('/movies/', (req, res) => {
         req.body.hasSeen = false;
     }
     Movie.create(req.body, (error, createdMovie) => {
-        res.send(createdMovie);
+        res.redirect('/movies');
     });
 });
 //Show
