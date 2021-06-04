@@ -2,3 +2,10 @@ body {
     background-color: #22223b ;
     color: #f2e9e4;
 }
+li{
+    display: inline-block;
+    margin: 0 10px;
+}
+.info{
+    font-size: larger;
+}
