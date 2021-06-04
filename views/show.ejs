@@ -12,18 +12,20 @@
 </head>
 
 <body>
-    <h2>
-        <%=movie.name; %>
-    </h2>
-    The <%=movie.name; %> is <%=movie.genre; %>.
-            <% if(movie.hasSeen===true){ %>
-                You have seen this movie.
-                <% } else { %>
-                    Needs to be watched.
-                    <% } %>
-                        <nav>
-                            <a href="/movies">Back to your queue</a>
-                        </nav>
+    <div class="show">
+        <h1>
+            <%=movie.name; %>
+        </h1>
+        <%=movie.name; %> is a <%=movie.genre; %> movie.
+                <% if(movie.hasSeen===true){ %>
+                    You have seen this movie.
+                    <% } else { %>
+                        Needs to be watched.
+                        <% } %>
+                            <nav>
+                                <a href="/movies">Back to your queue</a>
+                            </nav>
+    </div>
 </body>
 
 </html>

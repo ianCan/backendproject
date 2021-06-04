@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h2>Your Queue</h2>
+    <h1>Your Queue</h1>
 
     <ul class="movie">
         <% for(let i=0; i < movies.length; i++){ %>
@@ -22,30 +22,42 @@
                 </a>
             </li>
             <li>
-                Catergory : <span class="info">
+                Catergory : <br>
+                <span class="info">
                     <%=movies[i].genre; %>
                 </span>
             </li>
             <li>
-                Streaming Service : <%=movies[i].streaming; %>
+                Streaming Service : <br>
+                <span class="info">
+                    <%=movies[i].streaming; %>
+                </span>
             </li>
-            <% if(movies[i].hasSeen===true){ %>
-                You have seen this movie.
-                <% } else { %>
-                    Needs to be watched.
-                    <% } %>
-                        <br>
-                        User Score : <%=movies[i].score; %>/10
-                            <br>
-                            <!--Update Form-->
-                            <a href="/movies/<%=movies[i].id; %>/edit">Click to edit movie </a>
-                            <!--Delete Form-->
-                            <form action="/movies/<%=movies[i].id; %>?_method=DELETE" method="POST">
-                                <input type="submit" class="btn btn-outline-danger" value="DELETE">
-                            </form>
-                            <hr>
-                            </li>
-                            <% } %>
+            <li>
+                <% if(movies[i].hasSeen===true){ %>
+                    You have seen this movie.
+                    <% } else { %>
+                        Needs to be watched.
+                        <% } %>
+            </li>
+            <li>
+                User Score : <br> <span class="info">
+                    <%=movies[i].score; %>
+                </span>/10
+            </li>
+            <li>
+                <form action="/movies/<%=movies[i].id; %>?_method=DELETE" method="POST">
+                    <input type="submit" class="btn btn-outline-danger" value="DELETE">
+                </form>
+            </li>
+            <br>
+            <!--Update Form-->
+            <a href="/movies/<%=movies[i].id; %>/edit">Click to edit movie </a>
+            <!--Delete Form-->
+
+            <hr>
+            </li>
+            <% } %>
 
     </ul>
     <a href="/movies/new">Add a new Movie</a>
